@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 // Configure the client
 var options = Options.Create(new ReachyMiniOptions
 {
-    BaseUrl = "http://localhost:8080",
+    BaseUrl = "http://localhost:8000",
     Timeout = TimeSpan.FromSeconds(30)
 });
 
@@ -41,16 +41,6 @@ try
     if (state.HeadPose != null && state.HeadPose is XYZRPYPose headPose)
     {
         Console.WriteLine($"Head Position: X={headPose.X:F2}, Y={headPose.Y:F2}, Z={headPose.Z:F2}");
-    }
-    Console.WriteLine();
-
-    // List all available apps
-    Console.WriteLine("Getting available apps...");
-    var apps = await client.Apps.ListAllAvailableAppsAsync();
-    Console.WriteLine($"Found {apps.Count} available apps:");
-    foreach (var app in apps)
-    {
-        Console.WriteLine($"  - {app.Name} ({app.SourceKind})");
     }
     Console.WriteLine();
 
