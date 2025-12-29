@@ -43,6 +43,28 @@ Then open: http://localhost:5000/swagger
 - `POST /api/daemon/start` - Start daemon
 - `POST /api/daemon/stop` - Stop daemon
 
+## Chatty Reachy Mini
+
+A voice-enabled AI assistant that makes Reachy Mini interactive! Features:
+- 🎤 Voice recognition (Azure Speech)
+- 🤖 AI conversations (Azure OpenAI GPT)
+- 🔊 Text-to-speech responses
+- 📡 Expressive antenna movements
+- 💬 Conversational memory
+
+**Requirements:**
+- Azure Cognitive Services Speech key
+- Azure OpenAI service with deployed model
+
+**Run:**
+```bash
+cd samples/ChattyReachyMini
+# Configure API keys in Program.cs first
+dotnet run
+```
+
+See [ChattyReachyMini/README.md](ChattyReachyMini/README.md) for detailed setup instructions.
+
 ## Prerequisites
 
 - .NET 9.0 SDK
@@ -53,3 +75,4 @@ Then open: http://localhost:5000/swagger
 Update the robot URL in:
 - **BasicUsage**: `Program.cs` line 7
 - **WebApiSample**: `appsettings.json` ReachyMini:BaseUrl
+- **ChattyReachyMini**: `Program.cs` constants or environment variables

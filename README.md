@@ -37,6 +37,7 @@ Install-Package ReachyMini.Sdk
 Check out the [samples](samples/) folder for complete working examples:
 - **[BasicUsage](samples/BasicUsage/)** - Console app demonstrating core SDK features
 - **[WebApiSample](samples/WebApiSample/)** - ASP.NET Core Web API with dependency injection
+- **[ChattyReachyMini](samples/ChattyReachyMini/)** - Voice-enabled AI assistant with Azure OpenAI GPT and Azure Speech
 
 ## Quick Start
 

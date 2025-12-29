@@ -5,7 +5,6 @@ namespace ReachyMini.Sdk.Models;
 /// <summary>
 /// Kinds of app source.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum SourceKind
 {
     HfSpace,
@@ -17,7 +16,6 @@ public enum SourceKind
 /// <summary>
 /// Status of a running app.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum AppState
 {
     Starting,
@@ -30,7 +28,6 @@ public enum AppState
 /// <summary>
 /// Enum representing the state of the Reachy Mini daemon.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum DaemonState
 {
     NotInitialized,
@@ -44,7 +41,6 @@ public enum DaemonState
 /// <summary>
 /// Enum for motor control modes.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum MotorControlMode
 {
     Enabled,
@@ -55,7 +51,6 @@ public enum MotorControlMode
 /// <summary>
 /// Interpolation modes for movement.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum InterpolationMode
 {
     Linear,
@@ -67,7 +62,6 @@ public enum InterpolationMode
 /// <summary>
 /// Enum for job status.
 /// </summary>
-[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum JobStatus
 {
     Pending,

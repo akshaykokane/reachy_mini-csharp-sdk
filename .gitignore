@@ -46,3 +46,6 @@ bld/
 # Project specific
 swagger-spec/
 **/PUBLISHING.md
+
+# Local configuration files with secrets
+**/appsettings.local.json

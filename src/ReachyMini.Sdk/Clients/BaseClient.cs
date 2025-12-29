@@ -24,7 +24,11 @@ public abstract class BaseClient
         {
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
             PropertyNameCaseInsensitive = true,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+            Converters =
+            {
+                new System.Text.Json.Serialization.JsonStringEnumConverter(JsonNamingPolicy.SnakeCaseLower)
+            }
         };
     }
 
