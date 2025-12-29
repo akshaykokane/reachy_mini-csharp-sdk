@@ -7,16 +7,6 @@
 [![NuGet](https://img.shields.io/nuget/v/ReachyMini.Sdk.svg)](https://www.nuget.org/packages/ReachyMini.Sdk/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-## Features
-
-- 🎯 **Strongly-typed** - Full type safety with C# models
-- 🔌 **Dependency Injection** - First-class DI support for ASP.NET Core
-- ⚡ **Async/Await** - Modern async API throughout
-- 🛡️ **Error Handling** - Comprehensive exception handling
-- 📦 **Production Ready** - Built for reliability and performance
-- 🎨 **Clean API** - Intuitive and easy to use
-- 🔄 **Retry Logic** - Configurable retry policies
-- 📝 **Well Documented** - XML documentation for IntelliSense
 
 ## Installation
 
@@ -50,7 +40,7 @@ using Microsoft.Extensions.Options;
 
 var options = Options.Create(new ReachyMiniOptions
 {
-    BaseUrl = "http://localhost:8080",
+    BaseUrl = "http://localhost:8000",
     Timeout = TimeSpan.FromSeconds(30)
 });
 
@@ -80,12 +70,12 @@ using ReachyMini.Sdk;
 var builder = WebApplication.CreateBuilder(args);
 
 // Simple configuration
-builder.Services.AddReachyMiniClient("http://192.168.1.100:8080");
+builder.Services.AddReachyMiniClient("http://192.168.1.100:8000");
 
 // Or with options
 builder.Services.AddReachyMiniClient(options =>
 {
-    options.BaseUrl = "http://192.168.1.100:8080";
+    options.BaseUrl = "http://192.168.1.100:8000";
     options.Timeout = TimeSpan.FromSeconds(60);
     options.RetryCount = 3;
 });
@@ -102,7 +92,7 @@ var app = builder.Build();
 ```json
 {
   "ReachyMini": {
-    "BaseUrl": "http://192.168.1.100:8080",
+    "BaseUrl": "http://192.168.1.100:8000",
     "Timeout": "00:00:30",
     "ThrowOnError": true,
     "RetryCount": 3,
@@ -303,7 +293,7 @@ catch (ReachyMiniException ex)
 public class ReachyMiniOptions
 {
     // Base URL of the Reachy Mini API
-    public string BaseUrl { get; set; } = "http://localhost:8080";
+    public string BaseUrl { get; set; } = "http://localhost:8000";
     
     // HTTP request timeout
     public TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
