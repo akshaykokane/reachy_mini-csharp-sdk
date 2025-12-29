@@ -1,5 +1,6 @@
 using ReachyMini.Sdk;
 using ReachyMini.Sdk.Configuration;
+using ReachyMini.Sdk.Models;
 using Microsoft.Extensions.Options;
 
 // Configure the client
@@ -37,16 +38,16 @@ try
     var state = await client.State.GetFullStateAsync();
     Console.WriteLine($"Control Mode: {state.ControlMode}");
     Console.WriteLine($"Body Yaw: {state.BodyYaw}°");
-    if (state.HeadPose != null)
+    if (state.HeadPose != null && state.HeadPose is XYZRPYPose headPose)
     {
-        Console.WriteLine($"Head Position: X={state.HeadPose.X:F2}, Y={state.HeadPose.Y:F2}, Z={state.HeadPose.Z:F2}");
+        Console.WriteLine($"Head Position: X={headPose.X:F2}, Y={headPose.Y:F2}, Z={headPose.Z:F2}");
     }
     Console.WriteLine();
 
-    // List all installed apps
-    Console.WriteLine("Getting installed apps...");
-    var apps = await client.Apps.GetInstalledAppsAsync();
-    Console.WriteLine($"Found {apps.Count} installed apps:");
+    // List all available apps
+    Console.WriteLine("Getting available apps...");
+    var apps = await client.Apps.ListAllAvailableAppsAsync();
+    Console.WriteLine($"Found {apps.Count} available apps:");
     foreach (var app in apps)
     {
         Console.WriteLine($"  - {app.Name} ({app.SourceKind})");
